@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:maac_app/screens/tela_cadastrar_visitar.dart';
 import '../constantes/page_home_const.dart';
 
 class MyPageHome extends StatelessWidget {
@@ -75,36 +76,18 @@ class MyPageHome extends StatelessWidget {
                 ),
               ),
               RaisedButton(
-                child: Text('APERTE AQUI'),
+                color: Colors.amber[400],
+                child: Text('Tela Inicial'),
                 onPressed: (){
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => SegundaRota())
+                    MaterialPageRoute(builder: (context) => button_cadastro_visita())
                   );
                 },
               ),
             ],
           ),
       )
-    );
-  }
-}
-
-class SegundaRota extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text("Segunda Rota (tela)"),
-      ),
-      body: Center(
-        child: RaisedButton(
-          onPressed: () { 
-            Navigator.pop(context);
-          },
-          child: Text('Retornar !'),
-        ),
-      ),
     );
   }
 }
