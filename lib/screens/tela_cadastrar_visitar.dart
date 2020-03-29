@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:maac_app/screens/tela_cadastro.dart';
 
-class button_cadastro_visita extends StatelessWidget {
+class botao_cadastrar_visitar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -37,7 +38,12 @@ class button_cadastro_visita extends StatelessWidget {
                 borderRadius: BorderRadius.circular(700)
               ),
               child: FlatButton(
-                onPressed:(){},
+                onPressed:(){
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => TelaCadastro())
+                    );
+                },
                 child: Text(
                   'CADASTRAR',
                   style: TextStyle(

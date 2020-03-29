@@ -81,7 +81,7 @@ class MyPageHome extends StatelessWidget {
                 onPressed: (){
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => button_cadastro_visita())
+                    MaterialPageRoute(builder: (context) => botao_cadastrar_visitar())
                   );
                 },
               ),
