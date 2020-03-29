@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import './tela_buscar_beacon.dart';
 
 class button_cadastro_visita extends StatelessWidget {
   @override
@@ -13,18 +14,19 @@ class button_cadastro_visita extends StatelessWidget {
               height: 80,
               width: 350,
               decoration: BoxDecoration(
-                color: Colors.black,
-                borderRadius: BorderRadius.circular(700)
-              ),
+                  color: Colors.black,
+                  borderRadius: BorderRadius.circular(700)),
               child: FlatButton(
-                onPressed:(){},
-                child: Text(
-                  'VISITAR',
-                  style: TextStyle(
-                    color: Colors.white
-                  ),
-                )
-              ),
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => Buscabeacon()),
+                    );
+                  },
+                  child: Text(
+                    'VISITAR',
+                    style: TextStyle(color: Colors.white),
+                  )),
             ),
             SizedBox(
               height: 10,
@@ -33,18 +35,14 @@ class button_cadastro_visita extends StatelessWidget {
               height: 80,
               width: 350,
               decoration: BoxDecoration(
-                color: Colors.amber,
-                borderRadius: BorderRadius.circular(700)
-              ),
+                  color: Colors.amber,
+                  borderRadius: BorderRadius.circular(700)),
               child: FlatButton(
-                onPressed:(){},
-                child: Text(
-                  'CADASTRAR',
-                  style: TextStyle(
-                    color: Colors.black
-                  ),
-                )
-              ),
+                  onPressed: () {},
+                  child: Text(
+                    'CADASTRAR',
+                    style: TextStyle(color: Colors.black),
+                  )),
             ),
           ],
         ),
@@ -52,4 +50,3 @@ class button_cadastro_visita extends StatelessWidget {
     );
   }
 }
-
