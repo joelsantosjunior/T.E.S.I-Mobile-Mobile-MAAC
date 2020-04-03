@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:maac_app/screens/tela_cadastro.dart';
 import './tela_buscar_beacon.dart';
 
 class button_cadastro_visita extends StatelessWidget {
@@ -38,7 +39,12 @@ class button_cadastro_visita extends StatelessWidget {
                   color: Colors.amber,
                   borderRadius: BorderRadius.circular(700)),
               child: FlatButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => TelaCadastro()));
+                  },
                   child: Text(
                     'CADASTRAR',
                     style: TextStyle(color: Colors.black),
