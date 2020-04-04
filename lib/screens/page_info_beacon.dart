@@ -7,16 +7,40 @@ class PageInfoBeacon extends StatelessWidget {
       backgroundColor: Colors.amber[400],
       body: Column(
         children: <Widget>[
-          Image(image: AssetImage('lib/imagens/pintura.jpg')),
-          Text("Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.")
+          SizedBox(
+            height: 100,
+          ),
+          Flexible(
+            child: Padding(
+              padding: EdgeInsets.all(5),
+              child: ClipRRect(
+                borderRadius: BorderRadius.circular(15),
+                child: Image.asset(
+                  'lib/imagens/noite_estrelada.jpg',
+                  fit: BoxFit.fill
+                )
+              ),
+            ),
+          ),
+          Container(
+            color: Colors.black.withOpacity(.6),
+            child: Padding(
+              padding: EdgeInsets.all(25),
+              child: Text(
+                "Noite Estrelada é uma pintura de Vicent van Gogh de 1889. A obra retrata a vista da janela de um quarto do hospício de Saint-Rémy-de-Provence.",
+                style: TextStyle(color: Colors.white, fontSize: 25),
+              ),
+            )
+          ),
         ],
       ),
       bottomNavigationBar: BottomNavigationBar(
         type: BottomNavigationBarType.fixed,
+        backgroundColor: Colors.amber[400],
         items: [
-          BottomNavigationBarItem(icon: Icon(Icons.home, color: Color.fromARGB(255, 0, 0, 0), size: 40.0), title: Text('')),
-          BottomNavigationBarItem(icon: Icon(Icons.search, color: Color.fromARGB(255, 0, 0, 0), size: 40.0), title: Text('')),
-          BottomNavigationBarItem(icon: Icon(Icons.cancel, color: Color.fromARGB(255, 0, 0, 0), size: 40.0), title: Text(''))
+          BottomNavigationBarItem(icon: Icon(Icons.reply, color: Color.fromARGB(255, 0, 0, 0), size: 40.0), title: Text('')),
+          BottomNavigationBarItem(icon: CircleAvatar(radius: 30, backgroundColor: Colors.black, child: IconButton(iconSize: 40, icon: Icon(Icons.search,color: Colors.white)),), title: Text('')),
+          BottomNavigationBarItem(icon: Icon(Icons.highlight_off, color: Color.fromARGB(255, 0, 0, 0), size: 40.0), title: Text(''))
         ],
       ),
     );

@@ -17,8 +17,12 @@ environment:
   sdk: ">=2.1.0 <3.0.0"
 
 dependencies:
+  splashscreen: ^1.2.0
+  flare_flutter: ^2.0.1
   flutter:
     sdk: flutter
+  
+
   
 
   # The following adds the Cupertino Icons font to your application.
@@ -41,13 +45,20 @@ flutter:
   # the material Icons class.
   uses-material-design: true
 
+  assets:
+    - lib/imagens/Museu-de-Artes-Assis-Chateaubriand.jpg
+    - lib/imagens/buscando.flr
+    - lib/imagens/pintura.jpg
+    - lib/imagens/mona.jpg
+    - lib/imagens/noite_estrelada.jpg
+  
+
+  # To add assets to your application, add an assets section, like this:
   # assets:
   #   - lib/imagens/Museu-de-Artes-Assis-Chateaubriand.jpg
   
 
   # To add assets to your application, add an assets section, like this:
-  assets:
-   - lib/imagens/pintura.jpg
   #  - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see
