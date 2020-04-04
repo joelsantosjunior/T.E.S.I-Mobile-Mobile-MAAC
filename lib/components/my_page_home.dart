@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:maac_app/screens/tela_cadastrar_visitar.dart';
-import '../constantes/page_home_const.dart';
+import 'package:maac_app/util/constantes.dart';
 
 class MyPageHome extends StatelessWidget {
   @override
@@ -12,13 +12,10 @@ class MyPageHome extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
-            //Image.asset(
-            //  'lib/imagens/Museu-de-Artes-Assis-Chateaubriand.jpg',
-            //),
               Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: Text(
-                  PageHomeConst().SEJA,
+                  Const().SEJA,
                   style: TextStyle(
                     fontWeight: FontWeight.w700,
                     decoration: TextDecoration.none,
@@ -30,7 +27,7 @@ class MyPageHome extends StatelessWidget {
               Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: Text(
-                  PageHomeConst().BEM,
+                  Const().BEM,
                   style: TextStyle(
                     fontWeight: FontWeight.w700,
                     decoration: TextDecoration.none,
@@ -42,7 +39,7 @@ class MyPageHome extends StatelessWidget {
               Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: Text(
-                  PageHomeConst().VINDO,
+                  Const().VINDO,
                   style: TextStyle(
                     fontWeight: FontWeight.w700,
                     decoration: TextDecoration.none,
@@ -54,7 +51,7 @@ class MyPageHome extends StatelessWidget {
               Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: Text(
-                  PageHomeConst().frase1,
+                  Const().FRASE1,
                   style: TextStyle(
                     fontWeight: FontWeight.w300,
                     decoration: TextDecoration.none,
@@ -66,7 +63,7 @@ class MyPageHome extends StatelessWidget {
               Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: Text(
-                  PageHomeConst().frase2,
+                  Const().FRASE2,
                   style: TextStyle(
                     fontWeight: FontWeight.w300,
                     decoration: TextDecoration.none,
@@ -81,7 +78,7 @@ class MyPageHome extends StatelessWidget {
                 onPressed: (){
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => botao_cadastrar_visitar())
+                    MaterialPageRoute(builder: (context) => BotaoCadastrarVisitar())
                   );
                 },
               ),

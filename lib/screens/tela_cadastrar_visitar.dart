@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:maac_app/screens/tela_cadastro.dart';
 
-class botao_cadastrar_visitar extends StatelessWidget {
+class BotaoCadastrarVisitar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(

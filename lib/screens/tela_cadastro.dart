@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:maac_app/util/constantes.dart';
 
 class TelaCadastro extends StatelessWidget {
   @override
@@ -7,7 +8,7 @@ class TelaCadastro extends StatelessWidget {
       backgroundColor: Colors.amber[400],
       appBar: AppBar(
         title: Text(
-          'Tela de Cadastro',
+          Const().TELA_CADASTRO,
           style: TextStyle(
             color: Colors.black
           ),
@@ -15,12 +16,13 @@ class TelaCadastro extends StatelessWidget {
       backgroundColor: Colors.amber[400],
       ),
       body: Container(
+        margin: const EdgeInsets.all(10.0),
         child: ListView(
           children: <Widget>[
             TextFormField(
               keyboardType: TextInputType.text,
               decoration: InputDecoration(
-                labelText: 'Nome Completo',
+                labelText: Const().NOME_COMPLETO,
                 labelStyle: TextStyle(
                   color: Colors.black,
                   fontSize: 20,
@@ -35,7 +37,7 @@ class TelaCadastro extends StatelessWidget {
             TextFormField(
               keyboardType: TextInputType.phone,
               decoration: InputDecoration(
-                labelText: 'Telefone',
+                labelText: Const().TELEFONE,
                 labelStyle: TextStyle(
                   color: Colors.black,
                   fontSize: 20,
@@ -50,7 +52,7 @@ class TelaCadastro extends StatelessWidget {
             TextFormField(
               keyboardType: TextInputType.number,
               decoration: InputDecoration(
-                labelText: 'CEP',
+                labelText: Const().CEP,
                 labelStyle: TextStyle(
                   color: Colors.black,
                   fontSize: 20,
@@ -65,7 +67,7 @@ class TelaCadastro extends StatelessWidget {
             TextFormField(
               keyboardType: TextInputType.text,
               decoration: InputDecoration(
-                labelText: 'Endereço',
+                labelText: Const().ENDERECO,
                 labelStyle: TextStyle(
                   color: Colors.black,
                   fontSize: 20,
@@ -80,7 +82,7 @@ class TelaCadastro extends StatelessWidget {
             TextFormField(
               keyboardType: TextInputType.text,
               decoration: InputDecoration(
-                labelText: 'Bairro',
+                labelText: Const().BAIRRO,
                 labelStyle: TextStyle(
                   color: Colors.black,
                   fontSize: 20,
@@ -95,7 +97,7 @@ class TelaCadastro extends StatelessWidget {
             TextFormField(
               keyboardType: TextInputType.text,
               decoration: InputDecoration(
-                labelText: 'Complemento',
+                labelText: Const().COMPLEMENTO,
                 labelStyle: TextStyle(
                   color: Colors.black,
                   fontSize: 20,
@@ -110,7 +112,7 @@ class TelaCadastro extends StatelessWidget {
             TextFormField(
               keyboardType: TextInputType.text,
               decoration: InputDecoration(
-                labelText: 'Usuário',
+                labelText: Const().USUARIO,
                 labelStyle: TextStyle(
                   color: Colors.black,
                   fontSize: 20,
@@ -126,7 +128,7 @@ class TelaCadastro extends StatelessWidget {
               keyboardType: TextInputType.text,
               obscureText: true,
               decoration: InputDecoration(
-                labelText: 'Senha',
+                labelText: Const().SENHA,
                 labelStyle: TextStyle(
                   color: Colors.black,
                   fontSize: 20,
@@ -149,7 +151,7 @@ class TelaCadastro extends StatelessWidget {
               child: FlatButton(
                 onPressed:(){},
                 child: Text(
-                  'CADASTRAR',
+                  Const().CADASTRAR,
                   style: TextStyle(
                     color: Colors.white
                   ),
