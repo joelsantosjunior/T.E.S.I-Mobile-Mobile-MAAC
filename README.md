@@ -1,4 +1,4 @@
-# maac_app
+# Aplicativo mobile para visita auto-guiada ao Museu Assis Chateaubriand (MAAC)
 
 Aplicativo usando para visita auto-guiada dentro do museu, utilizando beacon como dispositivo de identificação.
 
