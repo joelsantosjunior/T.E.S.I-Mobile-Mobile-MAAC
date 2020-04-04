@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:maac_app/screens/tela_buscar_beacon.dart';
 import 'package:maac_app/screens/tela_cadastro.dart';
-import './tela_buscar_beacon.dart';
+import 'package:maac_app/util/constantes.dart';
 
-class button_cadastro_visita extends StatelessWidget {
+class BotaoCadastrarVisitar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -21,11 +22,11 @@ class button_cadastro_visita extends StatelessWidget {
                   onPressed: () {
                     Navigator.push(
                       context,
-                      MaterialPageRoute(builder: (context) => Buscabeacon()),
+                      MaterialPageRoute(builder: (context) => BuscaBeacon()),
                     );
                   },
                   child: Text(
-                    'VISITAR',
+                    Const().VISITAR,
                     style: TextStyle(color: Colors.white),
                   )),
             ),
@@ -39,16 +40,19 @@ class button_cadastro_visita extends StatelessWidget {
                   color: Colors.amber,
                   borderRadius: BorderRadius.circular(700)),
               child: FlatButton(
-                  onPressed: () {
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => TelaCadastro()));
-                  },
-                  child: Text(
-                    'CADASTRAR',
-                    style: TextStyle(color: Colors.black),
-                  )),
+                onPressed:(){
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => TelaCadastro())
+                    );
+                },
+                child: Text(
+                  Const().CADASTRAR,
+                  style: TextStyle(
+                    color: Colors.black
+                  ),
+                )
+              ),
             ),
           ],
         ),
