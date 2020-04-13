@@ -32,15 +32,20 @@ class PageInfoBeacon extends StatelessWidget {
               ),
             )
           ),
-        ],
-      ),
-      bottomNavigationBar: BottomNavigationBar(
-        type: BottomNavigationBarType.fixed,
-        backgroundColor: Colors.amber[400],
-        items: [
-          BottomNavigationBarItem(icon: Icon(Icons.reply, color: Color.fromARGB(255, 0, 0, 0), size: 40.0), title: Text('')),
-          BottomNavigationBarItem(icon: CircleAvatar(radius: 30, backgroundColor: Colors.black, child: IconButton(iconSize: 40, icon: Icon(Icons.search,color: Colors.white)),), title: Text('')),
-          BottomNavigationBarItem(icon: Icon(Icons.highlight_off, color: Color.fromARGB(255, 0, 0, 0), size: 40.0), title: Text(''))
+          Container(
+            child: Align(
+              alignment: AlignmentDirectional(0, 0),
+              child: BottomNavigationBar(
+                type: BottomNavigationBarType.fixed,
+                backgroundColor: Colors.amber[400],
+                items: [
+                  BottomNavigationBarItem(icon: Icon(Icons.reply, color: Color.fromARGB(255, 0, 0, 0), size: 40.0), title: Text('')),
+                  BottomNavigationBarItem(icon: CircleAvatar(radius: 30, backgroundColor: Colors.black, child: IconButton(iconSize: 40, icon: Icon(Icons.search,color: Colors.white)),), title: Text('')),
+                  BottomNavigationBarItem(icon: Icon(Icons.highlight_off, color: Color.fromARGB(255, 0, 0, 0), size: 40.0), title: Text(''))
+                ],
+              ),
+            ),
+          )
         ],
       ),
     );
