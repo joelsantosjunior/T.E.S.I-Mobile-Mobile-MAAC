@@ -22,6 +22,7 @@ dependencies:
   flare_flutter: ^2.0.1
   device_info: ^0.4.2+1
   convert: ^2.1.1
+  auto_size_text: ^2.1.0
   flutter:
     sdk: flutter
   
@@ -51,8 +52,13 @@ flutter:
   assets:
     - lib/imagens/Museu-de-Artes-Assis-Chateaubriand.jpg
     - lib/imagens/buscando.flr
+    - lib/imagens/next.flr
     - lib/imagens/pintura.jpg
     - lib/imagens/mona.jpg
+    - lib/imagens/bemvindo.png
+    - lib/imagens/bg.png
+    - lib/imagens/obrigado.png
+    - lib/imagens/cadastro.png
     - lib/imagens/noite_estrelada.jpg
   
 

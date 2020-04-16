@@ -8,7 +8,7 @@ class Const{
 
   //constantes para tela de cadastro
   String TELA_CADASTRO = 'Novo Visitante';
-  String NOME_COMPLETO = 'Nome Completo';
+  String NOME_COMPLETO = 'Nome';
   String TELEFONE = 'Telefone';
   String CEP = 'CEP';
   String ENDERECO = 'Endereço';

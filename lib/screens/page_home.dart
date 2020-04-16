@@ -10,7 +10,10 @@ class PageHome extends StatelessWidget {
     return MaterialApp(
       title: 'MAAC',
       debugShowCheckedModeBanner: false,
-      home: TelaSaida()
+      home: MyPageHome(),
+      theme: ThemeData(
+        primaryColor: Color(int.parse("0xFFEBBB41")),
+      ),
     );
   }
 }

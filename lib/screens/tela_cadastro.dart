@@ -35,7 +35,7 @@ class TelaCadastro extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.amber[400],
+      backgroundColor: Colors.white,
       appBar: AppBar(
         title: Text(
           Const().TELA_CADASTRO,
@@ -44,7 +44,7 @@ class TelaCadastro extends StatelessWidget {
         backgroundColor: Colors.amber[400],
       ),
       body: Container(
-          margin: const EdgeInsets.only(right: 20, left: 20),
+          margin: const EdgeInsets.only(right: 20, left: 20, top: 20),
           child: ListView(
             children: <Widget>[
               InputWidget(
@@ -52,12 +52,12 @@ class TelaCadastro extends StatelessWidget {
                 label: Const().NOME_COMPLETO,
               ),
               InputWidget(
-                controller: this._telefoneController,
-                label: Const().TELEFONE,
+                controller: this._emailController,
+                label: Const().EMAIL,
               ),
               InputWidget(
-                controller: this._cepController,
-                label: Const().CEP,
+                controller: this._telefoneController,
+                label: Const().TELEFONE,
               ),
               InputWidget(
                 controller: this._enderecoController,
@@ -72,21 +72,21 @@ class TelaCadastro extends StatelessWidget {
                 label: Const().COMPLEMENTO,
               ),
               InputWidget(
-                controller: this._emailController,
-                label: Const().EMAIL,
+                controller: this._cepController,
+                label: Const().CEP,
               ),
               Container(
                 height: 50,
                 margin: EdgeInsets.only(top: 16, left: 35, right: 35),
                 //width: 10,
                 decoration: BoxDecoration(
-                    color: Colors.black,
+                    color: Theme.of(context).primaryColor,
                     borderRadius: BorderRadius.circular(100)),
                 child: FlatButton(
                     onPressed: createVisitante,
                     child: Text(
                       Const().CADASTRAR,
-                      style: TextStyle(color: Colors.white),
+                      style: TextStyle(color: Colors.black),
                     )),
               ),
             ],
