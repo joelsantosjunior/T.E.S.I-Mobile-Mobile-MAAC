@@ -52,8 +52,13 @@ flutter:
   assets:
     - lib/imagens/Museu-de-Artes-Assis-Chateaubriand.jpg
     - lib/imagens/buscando.flr
+    - lib/imagens/next.flr
     - lib/imagens/pintura.jpg
     - lib/imagens/mona.jpg
+    - lib/imagens/bemvindo.png
+    - lib/imagens/bg.png
+    - lib/imagens/obrigado.png
+    - lib/imagens/cadastro.png
     - lib/imagens/noite_estrelada.jpg
   
 
