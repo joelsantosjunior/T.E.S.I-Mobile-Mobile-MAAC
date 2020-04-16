@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:maac_app/components/my_page_home.dart';
 
+import 'tela_agradecimento.dart';
+
 class PageHome extends StatelessWidget {
 
   @override
@@ -8,7 +10,7 @@ class PageHome extends StatelessWidget {
     return MaterialApp(
       title: 'MAAC',
       debugShowCheckedModeBanner: false,
-      home: MyPageHome()
+      home: TelaSaida()
     );
   }
 }
