@@ -1,7 +1,21 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
+import 'package:maac_app/api/api.dart';
+import 'package:maac_app/models/Visitante.dart';
 import 'package:maac_app/util/constantes.dart';
 
 class TelaCadastro extends StatelessWidget {
+
+  final _nomeController = TextEditingController();
+  final _telefoneController = TextEditingController();
+  final _cepController = TextEditingController();
+  final _enderecoController = TextEditingController();
+  final _bairroController = TextEditingController();
+  final _complementoController = TextEditingController();
+  final _emailController = TextEditingController();
+
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -20,6 +34,7 @@ class TelaCadastro extends StatelessWidget {
         child: ListView(
           children: <Widget>[
             TextFormField(
+              controller: _nomeController,
               keyboardType: TextInputType.text,
               decoration: InputDecoration(
                 labelText: Const().NOME_COMPLETO,
@@ -35,6 +50,7 @@ class TelaCadastro extends StatelessWidget {
               height: 10,
             ),
             TextFormField(
+              controller: _telefoneController,
               keyboardType: TextInputType.phone,
               decoration: InputDecoration(
                 labelText: Const().TELEFONE,
@@ -50,6 +66,7 @@ class TelaCadastro extends StatelessWidget {
               height: 10,
             ),
             TextFormField(
+              controller: _cepController,
               keyboardType: TextInputType.number,
               decoration: InputDecoration(
                 labelText: Const().CEP,
@@ -65,6 +82,7 @@ class TelaCadastro extends StatelessWidget {
               height: 10,
             ),
             TextFormField(
+              controller: _enderecoController,
               keyboardType: TextInputType.text,
               decoration: InputDecoration(
                 labelText: Const().ENDERECO,
@@ -80,6 +98,7 @@ class TelaCadastro extends StatelessWidget {
               height: 10,
             ),
             TextFormField(
+              controller: _bairroController,
               keyboardType: TextInputType.text,
               decoration: InputDecoration(
                 labelText: Const().BAIRRO,
@@ -95,6 +114,7 @@ class TelaCadastro extends StatelessWidget {
               height: 10,
             ),
             TextFormField(
+              controller: _complementoController,
               keyboardType: TextInputType.text,
               decoration: InputDecoration(
                 labelText: Const().COMPLEMENTO,
@@ -110,9 +130,10 @@ class TelaCadastro extends StatelessWidget {
               height: 10,
             ),
             TextFormField(
+              controller: _emailController,
               keyboardType: TextInputType.text,
               decoration: InputDecoration(
-                labelText: Const().USUARIO,
+                labelText: Const().EMAIL,
                 labelStyle: TextStyle(
                   color: Colors.black,
                   fontSize: 20,
@@ -124,22 +145,7 @@ class TelaCadastro extends StatelessWidget {
             SizedBox(
               height: 10,
             ),
-            TextFormField(
-              keyboardType: TextInputType.text,
-              obscureText: true,
-              decoration: InputDecoration(
-                labelText: Const().SENHA,
-                labelStyle: TextStyle(
-                  color: Colors.black,
-                  fontSize: 20,
-                  fontWeight: FontWeight.w300
-                )
-              ),
-              style: TextStyle(fontSize: 20),
-            ),
-            SizedBox(
-              height: 10,
-            ),
+            
             Container(
               
               height: 50,
@@ -149,7 +155,12 @@ class TelaCadastro extends StatelessWidget {
                 borderRadius: BorderRadius.circular(100)
               ),
               child: FlatButton(
-                onPressed:(){},
+                onPressed:(){
+                  Visitante visitante  = new Visitante(this._nomeController.text, telefone: this._telefoneController.text, cep: this._cepController.text, endereco: this._enderecoController.text, bairro: this._bairroController.text, complemento: this._complementoController.text, email: this._emailController.text);
+                  var data = visitante.toJson();     
+                  Api api = new Api();
+                  api.cadastrarVisistante(data);
+                },
                 child: Text(
                   Const().CADASTRAR,
                   style: TextStyle(

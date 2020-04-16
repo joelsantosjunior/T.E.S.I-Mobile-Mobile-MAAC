@@ -14,8 +14,7 @@ class Const{
   String ENDERECO = 'Endereço';
   String BAIRRO = 'Bairro';
   String COMPLEMENTO = 'Complemento';
-  String USUARIO = 'Usuário';
-  String SENHA = 'Senha';
+  String EMAIL = 'Email';
   String CADASTRAR = 'CADASTRAR';
 
   //constantes para tela de cadastrar visitar
