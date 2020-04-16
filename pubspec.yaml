@@ -19,6 +19,8 @@ environment:
 dependencies:
   splashscreen: ^1.2.0
   flare_flutter: ^2.0.1
+  http: ^0.12.0+2
+  convert: ^2.1.1
   flutter:
     sdk: flutter
 
