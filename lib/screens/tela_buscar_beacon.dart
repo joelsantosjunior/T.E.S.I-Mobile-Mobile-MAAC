@@ -1,7 +1,18 @@
 import 'package:flare_flutter/flare_actor.dart';
 import 'package:flutter/material.dart';
+import 'package:maac_app/api/BeaconService.dart';
 
 class BuscaBeacon extends StatelessWidget {
+  BeaconService beaconService = new BeaconService();
+
+  void beaconById() async {
+    await beaconService.getBeaconById('5e937ec7d6e07f0017441f75');
+  }
+
+    void allBeacons() async {
+    await beaconService.getAllBeacon();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -39,7 +50,7 @@ class BuscaBeacon extends StatelessWidget {
                     color: Colors.black,
                     size: 100.0,
                   ),
-                  onPressed: () {},
+                  onPressed: (){},
                 ),
               ),
             ),
