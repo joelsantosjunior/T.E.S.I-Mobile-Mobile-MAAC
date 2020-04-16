@@ -6,6 +6,7 @@ class Visitante {
   String bairro;
   String complemento;
   String email;
+  String idCelular;
 
   Visitante(
       this.nome,
@@ -14,6 +15,7 @@ class Visitante {
       this.endereco,
       this.bairro,
       this.complemento,
+      this.idCelular,
       this.email});
 
   Visitante.fromJson(Map<String, dynamic> json) {
@@ -22,6 +24,7 @@ class Visitante {
     cep = json['cep'];
     endereco = json['endereco'];
     bairro = json['bairro'];
+    idCelular = json['idCelular'];
     complemento = json['complemento'];
     email = json['email'];
   }
@@ -32,6 +35,7 @@ class Visitante {
       'telefone': this.telefone,
       'cep': this.cep,
       'endereco': this.endereco,
+      'idCelular': this.idCelular,
       'bairro': this.bairro,
       'complemento':this.complemento,
       'email': email,

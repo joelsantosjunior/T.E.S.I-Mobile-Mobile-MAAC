@@ -7,7 +7,7 @@ class Const{
    String FRASE2 = 'ASSIS CHATEAUBRIAND';
 
   //constantes para tela de cadastro
-  String TELA_CADASTRO = 'Tela de Cadastro';
+  String TELA_CADASTRO = 'Novo Visitante';
   String NOME_COMPLETO = 'Nome Completo';
   String TELEFONE = 'Telefone';
   String CEP = 'CEP';
