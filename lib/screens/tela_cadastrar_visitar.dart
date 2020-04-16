@@ -27,7 +27,7 @@ class BotaoCadastrarVisitar extends StatelessWidget {
                   },
                   child: Text(
                     Const().VISITAR,
-                    style: TextStyle(color: Colors.white),
+                    style: TextStyle(color: Colors.white, fontSize: 20),
                   )),
             ),
             SizedBox(
@@ -36,23 +36,24 @@ class BotaoCadastrarVisitar extends StatelessWidget {
             Container(
               height: 80,
               width: 350,
-              decoration: BoxDecoration(
-                  color: Colors.amber,
-                  borderRadius: BorderRadius.circular(700)),
-              child: FlatButton(
-                onPressed:(){
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => TelaCadastro())
-                    );
-                },
-                child: Text(
-                  Const().CADASTRAR,
-                  style: TextStyle(
-                    color: Colors.black
+              child: OutlineButton(
+                  shape: new RoundedRectangleBorder(
+                      borderRadius: new BorderRadius.circular(700)),
+                  onPressed: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => TelaCadastro()));
+                  },
+                  borderSide: BorderSide(
+                    color: Colors.black, //Color of the border
+                    style: BorderStyle.solid, //Style of the border
+                    width: 3, //width of the border
                   ),
-                )
-              ),
+                  child: Text(
+                    Const().CADASTRAR,
+                    style: TextStyle(color: Colors.black, fontSize: 20),
+                  )),
             ),
           ],
         ),
