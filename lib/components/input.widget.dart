@@ -12,7 +12,7 @@ class InputWidget extends StatelessWidget {
     return Container(
       margin: EdgeInsets.only(bottom: 10),
       child: TextFormField(
-          controller: controller,
+          controller: this.controller,
           keyboardType: TextInputType.text,
           decoration: InputDecoration(
               labelText: this.label,

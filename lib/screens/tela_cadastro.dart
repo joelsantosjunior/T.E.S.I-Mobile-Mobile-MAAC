@@ -27,7 +27,6 @@ class TelaCadastro extends StatelessWidget {
         email: this._emailController.text);
 
     var data = visitante.toJson();
-    print(data);
 
     Api api = new Api();
     api.cadastrarVisistante(data);
