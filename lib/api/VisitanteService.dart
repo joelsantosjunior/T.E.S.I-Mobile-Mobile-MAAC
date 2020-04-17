@@ -40,6 +40,8 @@ class VisitanteService {
     Iterable list = json.decode(response.body);
     List<Visitante> visitantes =
         list.map((model) => Visitante.fromJson(model)).toList();
-    return visitantes[0];
+    if(visitantes.length > 0)
+      return visitantes[0];
+    return null;
   }
 }
