@@ -38,25 +38,29 @@ class PageInfoBeacon extends StatelessWidget {
       body: Column(
         mainAxisAlignment: MainAxisAlignment.end,
         children: <Widget>[
-          SizedBox(
-            height: 100,
+          Text(
+            beacon.local,
           ),
-          Flexible(
-            child: Padding(
-              padding: EdgeInsets.all(5),
-              child: ClipRRect(
-                  borderRadius: BorderRadius.circular(15),
-                  child: Image.asset('lib/imagens/noite_estrelada.jpg',
-                      fit: BoxFit.fill)),
+             Expanded(
+              child: Center(
+                child: Container(
+                  child: Padding(
+                    padding: EdgeInsets.all(5),
+                    child: ClipRRect(
+                        borderRadius: BorderRadius.circular(15),
+                        child: Image.asset(beacon.conteudo,
+                            fit: BoxFit.fill)),
+                  ),
+                ),
+              ),
             ),
-          ),
           Container(
             child: Padding(
               padding: EdgeInsets.all(25),
               child: SingleChildScrollView(
                   child: AutoSizeText(
-                beacon.conteudo,
-                style: TextStyle(color: Colors.white, fontSize: 25),
+                beacon.legenda,
+                style: TextStyle(color: Colors.white, fontSize: 15),
                 maxLines: 7,
               )),
             ),
@@ -79,7 +83,7 @@ class PageInfoBeacon extends StatelessWidget {
                         backgroundColor: Colors.black,
                         child: IconButton(
                             iconSize: 40,
-                            icon: Icon(Icons.search, color: Colors.white)),
+                            icon: Icon(Icons.search, color: Colors.white), onPressed: () {},),
                       ),
                       title: Text('')),
                   BottomNavigationBarItem(
