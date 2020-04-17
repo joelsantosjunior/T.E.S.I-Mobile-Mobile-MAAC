@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:maac_app/api/api.dart';
+import 'package:maac_app/api/VisitanteService.dart';
 import 'package:maac_app/components/input.widget.dart';
 import 'package:maac_app/models/Visitante.dart';
 import 'package:maac_app/util/constantes.dart';
@@ -28,8 +28,8 @@ class TelaCadastro extends StatelessWidget {
 
     var data = visitante.toJson();
 
-    Api api = new Api();
-    api.cadastrarVisistante(data);
+    VisitanteService service = new VisitanteService();
+    service.cadastrarVisistante(data);
   }
 
   @override
