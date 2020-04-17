@@ -58,30 +58,37 @@ class TelaCadastro extends StatelessWidget {
               InputWidget(
                 controller: this._nomeController,
                 label: Const().NOME_COMPLETO,
+                keyboardType: TextInputType.text,
               ),
               InputWidget(
                 controller: this._emailController,
                 label: Const().EMAIL,
+                keyboardType: TextInputType.text,
               ),
               InputWidget(
                 controller: this._telefoneController,
                 label: Const().TELEFONE,
+                keyboardType: TextInputType.phone,
               ),
               InputWidget(
                 controller: this._enderecoController,
                 label: Const().ENDERECO,
+                keyboardType: TextInputType.text,
               ),
               InputWidget(
                 controller: this._bairroController,
                 label: Const().BAIRRO,
+                keyboardType: TextInputType.text,
               ),
               InputWidget(
                 controller: this._complementoController,
                 label: Const().COMPLEMENTO,
+                keyboardType: TextInputType.text,
               ),
               InputWidget(
                 controller: this._cepController,
                 label: Const().CEP,
+                keyboardType: TextInputType.number,
               ),
               Container(
                 height: 50,

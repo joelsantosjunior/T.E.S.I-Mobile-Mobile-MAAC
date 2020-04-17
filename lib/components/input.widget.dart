@@ -4,8 +4,8 @@ class InputWidget extends StatelessWidget {
 
   var label = "";
   var controller = TextEditingController();
-
-  InputWidget({@required this.controller, @required this.label});
+  var keyboardType = TextInputType.text;
+  InputWidget({@required this.controller, @required this.label,  @required this.keyboardType});
 
   @override
   Widget build(BuildContext context) {
@@ -13,7 +13,7 @@ class InputWidget extends StatelessWidget {
       margin: EdgeInsets.only(bottom: 10),
       child: TextFormField(
           controller: this.controller,
-          keyboardType: TextInputType.text,
+          keyboardType: this.keyboardType,
           decoration: InputDecoration(
               labelText: this.label,
               labelStyle: TextStyle(
