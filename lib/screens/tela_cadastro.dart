@@ -5,6 +5,8 @@ import 'package:maac_app/models/Visitante.dart';
 import 'package:maac_app/util/constantes.dart';
 import 'package:maac_app/util/deviceId.dart';
 
+import 'tela_cadastrar_visitar.dart';
+
 class TelaCadastro extends StatelessWidget {
   final _nomeController = TextEditingController();
   final _telefoneController = TextEditingController();
@@ -13,6 +15,8 @@ class TelaCadastro extends StatelessWidget {
   final _bairroController = TextEditingController();
   final _complementoController = TextEditingController();
   final _emailController = TextEditingController();
+
+  BuildContext context;
 
   void createVisitante() async {
     final identifer = await DeviceId.getDeviceDetails();
@@ -30,10 +34,14 @@ class TelaCadastro extends StatelessWidget {
 
     VisitanteService service = new VisitanteService();
     service.cadastrarVisistante(data);
+
+    Navigator.push(context,
+        MaterialPageRoute(builder: (context) => BotaoCadastrarVisitar()));
   }
 
   @override
   Widget build(BuildContext context) {
+    this.context = context;
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
