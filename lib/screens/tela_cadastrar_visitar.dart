@@ -17,7 +17,7 @@ class BotaoCadastrarVisitar extends StatelessWidget {
 
     VisitanteService service = new VisitanteService();
     Visitante visitante = await service.getByPhoneId(idCelular);
-    if (visitante.nome != null) {
+    if (visitante != null) {
       Navigator.push(
         context,
         MaterialPageRoute(builder: (context) => BuscaBeacon()),
