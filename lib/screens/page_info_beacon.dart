@@ -1,14 +1,38 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:maac_app/models/Beacon.dart';
+import 'package:maac_app/screens/tela_agradecimento.dart';
+
+import 'tela_buscar_beacon.dart';
+import 'tela_cadastrar_visitar.dart';
 
 class PageInfoBeacon extends StatelessWidget {
   final Beacon beacon;
 
   PageInfoBeacon({@required this.beacon});
+  BuildContext context;
+
+  void _tap(int index) {
+    switch (index) {
+      case 0:
+        Navigator.push(
+            context, MaterialPageRoute(builder: (context) => BotaoCadastrarVisitar()));
+        break;
+      case 1:
+        Navigator.push(
+            context, MaterialPageRoute(builder: (context) => BuscaBeacon()));
+        break;
+      case 2:
+        Navigator.push(
+            context, MaterialPageRoute(builder: (context) => TelaSaida()));
+        break;
+      default:
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
+    this.context = context;
     return Scaffold(
       backgroundColor: Colors.amber[400],
       body: Column(
@@ -30,18 +54,18 @@ class PageInfoBeacon extends StatelessWidget {
             child: Padding(
               padding: EdgeInsets.all(25),
               child: SingleChildScrollView(
-                child: AutoSizeText(
-                  beacon.conteudo,
-                  style: TextStyle(color: Colors.white, fontSize: 25),
-                  maxLines: 7,
-                )
-              ),
+                  child: AutoSizeText(
+                beacon.conteudo,
+                style: TextStyle(color: Colors.white, fontSize: 25),
+                maxLines: 7,
+              )),
             ),
             color: Colors.black.withOpacity(.6),
           ),
           Container(
             child: Align(
               child: BottomNavigationBar(
+                onTap: _tap,
                 type: BottomNavigationBarType.fixed,
                 backgroundColor: Colors.amber[400],
                 items: [
