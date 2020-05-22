@@ -6,7 +6,7 @@ import 'package:maac_app/models/Visitante.dart';
 
 class VisitanteService {
   String token =
-      "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVlOTM3ZGFhZDZlMDdmMDAxNzQ0MWY3MyIsImlzQWRtaW4iOnRydWUsImlhdCI6MTU4NjcyODM0NSwiZXhwIjoxNTg5MzIwMzQ1fQ.QJohZgckYm1V9-sW6ZEKy3zOKFRJbbZt_ocTKCBTLyc";
+      "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVlOTM3ZGFhZDZlMDdmMDAxNzQ0MWY3MyIsImlzQWRtaW4iOnRydWUsImlhdCI6MTU5MDExMDQxMiwiZXhwIjoxNTkyNzAyNDEyfQ.3_m2gqTtUIGGNwftHYrTdr1KFDMcuvIsRJ__AFWnxjY";
 
   Future<Visitante> cadastrarVisistante(Map<String, dynamic> data) async {
     // FALTA COLOCAR UMA URL VALIDA
@@ -37,11 +37,11 @@ class VisitanteService {
       'https://thawing-crag-60834.herokuapp.com/visitantes?idCelular=' + id,
       headers: {HttpHeaders.authorizationHeader: token},
     );
+    print(response.body);
     Iterable list = json.decode(response.body);
     List<Visitante> visitantes =
         list.map((model) => Visitante.fromJson(model)).toList();
-    if(visitantes.length > 0)
-      return visitantes[0];
+    if (visitantes.length > 0) return visitantes[0];
     return null;
   }
 }
