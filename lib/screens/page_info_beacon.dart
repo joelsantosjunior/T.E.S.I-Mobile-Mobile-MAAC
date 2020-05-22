@@ -5,6 +5,7 @@ import 'package:maac_app/screens/tela_agradecimento.dart';
 
 import 'tela_buscar_beacon.dart';
 import 'tela_cadastrar_visitar.dart';
+import 'package:youtube_player_flutter/youtube_player_flutter.dart';
 
 class PageInfoBeacon extends StatelessWidget {
   final Beacon beacon;
@@ -30,6 +31,61 @@ class PageInfoBeacon extends StatelessWidget {
     }
   }
 
+  Widget beaconContent(String type, String content) {
+    Widget widgetContent;
+
+    if (type == "texto") {
+      widgetContent = Container(
+        child: Padding(
+          padding: EdgeInsets.all(20),
+          child: SingleChildScrollView(
+            child: Text(
+              content,
+              style: TextStyle(
+                  fontSize: 18,
+                  color: Colors.black,
+                  textBaseline: TextBaseline.alphabetic),
+            ),
+          ),
+        ),
+      );
+    }
+
+    if (type == "video") {
+      YoutubePlayerController _controller = YoutubePlayerController(
+        initialVideoId: content,
+        flags: YoutubePlayerFlags(
+          autoPlay: true,
+          mute: true,
+        ),
+      );
+
+      widgetContent = Container(
+        child: Padding(
+          padding: EdgeInsets.all(5),
+          child: YoutubePlayer(
+            controller: _controller,
+            liveUIColor: Colors.amber,
+          ),
+        ),
+      );
+    }
+
+    if (type == "imagem") {
+      widgetContent = Container(
+        child: Padding(
+          padding: EdgeInsets.all(5),
+          child: ClipRRect(
+              borderRadius: BorderRadius.circular(15),
+              // child: Image.asset(beacon.conteudo, fit: BoxFit.fill)),
+              child: Image.network(content, fit: BoxFit.fill)),
+        ),
+      );
+    }
+
+    return widgetContent;
+  }
+
   @override
   Widget build(BuildContext context) {
     this.context = context;
@@ -43,17 +99,11 @@ class PageInfoBeacon extends StatelessWidget {
           ),
           Expanded(
             child: Center(
-              child: Container(
-                child: Padding(
-                  padding: EdgeInsets.all(5),
-                  child: ClipRRect(
-                      borderRadius: BorderRadius.circular(15),
-                      child: Image.asset(beacon.conteudo, fit: BoxFit.fill)),
-                ),
-              ),
-            ),
+                child: beaconContent(
+                    this.beacon.tipoConteudo, this.beacon.conteudo)),
           ),
           Container(
+            width: double.infinity,
             child: Padding(
               padding: EdgeInsets.all(25),
               child: SingleChildScrollView(
