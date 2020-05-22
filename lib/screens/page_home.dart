@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:maac_app/components/my_page_home.dart';
+import 'package:flutter/material.dart';
 
-import 'tela_agradecimento.dart';
+class PageHome extends StatefulWidget {
+  @override
+  _PageHomeState createState() => _PageHomeState();
+}
 
-class PageHome extends StatelessWidget {
-
+class _PageHomeState extends State<PageHome> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(

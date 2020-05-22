@@ -15,8 +15,8 @@ class PageInfoBeacon extends StatelessWidget {
   void _tap(int index) {
     switch (index) {
       case 0:
-        Navigator.push(
-            context, MaterialPageRoute(builder: (context) => BotaoCadastrarVisitar()));
+        Navigator.push(context,
+            MaterialPageRoute(builder: (context) => BotaoCadastrarVisitar()));
         break;
       case 1:
         Navigator.push(
@@ -41,19 +41,18 @@ class PageInfoBeacon extends StatelessWidget {
           Text(
             beacon.local,
           ),
-             Expanded(
-              child: Center(
-                child: Container(
-                  child: Padding(
-                    padding: EdgeInsets.all(5),
-                    child: ClipRRect(
-                        borderRadius: BorderRadius.circular(15),
-                        child: Image.asset(beacon.conteudo,
-                            fit: BoxFit.fill)),
-                  ),
+          Expanded(
+            child: Center(
+              child: Container(
+                child: Padding(
+                  padding: EdgeInsets.all(5),
+                  child: ClipRRect(
+                      borderRadius: BorderRadius.circular(15),
+                      child: Image.asset(beacon.conteudo, fit: BoxFit.fill)),
                 ),
               ),
             ),
+          ),
           Container(
             child: Padding(
               padding: EdgeInsets.all(25),
@@ -81,9 +80,8 @@ class PageInfoBeacon extends StatelessWidget {
                       icon: CircleAvatar(
                         radius: 30,
                         backgroundColor: Colors.black,
-                        child: IconButton(
-                            iconSize: 40,
-                            icon: Icon(Icons.search, color: Colors.white), onPressed: () {},),
+                        child:
+                            Icon(Icons.search, color: Colors.white, size: 40.0),
                       ),
                       title: Text('')),
                   BottomNavigationBarItem(
