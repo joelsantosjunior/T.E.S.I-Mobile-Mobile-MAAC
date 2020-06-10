@@ -77,6 +77,7 @@ class _BuscaBeaconState extends State<BuscaBeacon> {
         cntext,
         MaterialPageRoute(
             builder: (context) => PageInfoBeacon(beacon: this.beacon)));
+    dispose();
   }
 
   @override
