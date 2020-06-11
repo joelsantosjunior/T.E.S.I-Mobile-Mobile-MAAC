@@ -4,6 +4,7 @@ import 'package:auto_size_text/auto_size_text.dart';
 import 'package:maac_app/components/image-content.widget.dart';
 import 'package:maac_app/components/text-content.widget.dart';
 import 'package:maac_app/components/video-content.widget.dart';
+import 'package:maac_app/pages/agradecimento.page.dart';
 
 import 'package:maac_app/pages/busca-beacon.page.dart';
 import 'package:maac_app/pages/home.page.dart';
@@ -29,8 +30,10 @@ class PageInfoBeacon extends StatelessWidget {
             context, MaterialPageRoute(builder: (context) => BuscaBeacon()));
         break;
       case 2:
-        Navigator.pushAndRemoveUntil(context,
-            MaterialPageRoute(builder: (context) => HomePage()), (r) => false);
+        Navigator.push(
+            context, MaterialPageRoute(builder: (context) => AgradecimentoPage()));
+        // Navigator.pushAndRemoveUntil(context,
+        //     MaterialPageRoute(builder: (context) => HomePage()), (r) => false);
         break;
       default:
     }

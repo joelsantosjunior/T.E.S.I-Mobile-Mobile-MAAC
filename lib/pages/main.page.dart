@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:maac_app/pages/home.page.dart';
+import 'package:maac_app/themes/app.theme.dart';
 
 class MainPage extends StatelessWidget {
   @override
@@ -8,9 +9,7 @@ class MainPage extends StatelessWidget {
       title: 'MAAC',
       debugShowCheckedModeBanner: false,
       home: HomePage(),
-      theme: ThemeData(
-        primaryColor: Color(int.parse("0xFFEBBB41")),
-      ),
+      theme: appTheme(),
     );
   }
 }

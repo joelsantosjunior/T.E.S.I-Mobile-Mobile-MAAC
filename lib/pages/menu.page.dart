@@ -39,7 +39,7 @@ class MenuPage extends StatelessWidget {
       body: Container(
         decoration: BoxDecoration(
             image: DecorationImage(
-                image: AssetImage("lib/imagens/cadastro.png"),
+                image: AssetImage("assets/images/cadastro.png"),
                 fit: BoxFit.fill)),
         child: Center(
           child: Column(

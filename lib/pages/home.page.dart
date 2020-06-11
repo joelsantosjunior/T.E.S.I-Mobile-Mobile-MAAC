@@ -11,7 +11,7 @@ class HomePage extends StatelessWidget {
         body: Container(
           decoration: BoxDecoration(
               image: DecorationImage(
-                  image: AssetImage("lib/imagens/bemvindo.png"),
+                  image: AssetImage("assets/images/bemvindo.png"),
                   fit: BoxFit.cover)),
           child: Center(
             child: Column(
@@ -32,7 +32,7 @@ class HomePage extends StatelessWidget {
                       child: Align(
                         alignment: AlignmentDirectional(0, 0),
                         child: FlareActor(
-                          "lib/imagens/next.flr",
+                          "assets/images/next.flr",
                           animation: "telaInicial",
                           fit: BoxFit.contain,
                         ),

@@ -72,13 +72,13 @@ class BuscaBeacon extends StatelessWidget {
       body: Container(
         decoration: BoxDecoration(
             image: DecorationImage(
-                image: AssetImage("lib/imagens/bg.png"), fit: BoxFit.fill)),
+                image: AssetImage("assets/images/bg.png"), fit: BoxFit.fill)),
         child: Center(
           child: Stack(
             children: <Widget>[
               Container(
                 child: FlareActor(
-                  "lib/imagens/buscando.flr",
+                  "assets/images/buscando.flr",
                   animation: "Record2",
                   fit: BoxFit.contain,
                 ),
