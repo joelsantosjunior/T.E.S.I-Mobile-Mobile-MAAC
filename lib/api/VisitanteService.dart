@@ -5,9 +5,6 @@ import 'package:http/http.dart' as http;
 import 'package:maac_app/models/Visitante.dart';
 
 class VisitanteService {
-  String token =
-      "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVlOTM3ZGFhZDZlMDdmMDAxNzQ0MWY3MyIsImlzQWRtaW4iOnRydWUsImlhdCI6MTU5MDExMDQxMiwiZXhwIjoxNTkyNzAyNDEyfQ.3_m2gqTtUIGGNwftHYrTdr1KFDMcuvIsRJ__AFWnxjY";
-
   Future<Visitante> cadastrarVisistante(Map<String, dynamic> data) async {
     // FALTA COLOCAR UMA URL VALIDA
 
@@ -15,7 +12,6 @@ class VisitanteService {
       'https://thawing-crag-60834.herokuapp.com/visitantes',
       headers: <String, String>{
         'Content-Type': 'application/json; charset=UTF-8',
-        'Authorization': token,
       },
       body: jsonEncode(data),
     );
