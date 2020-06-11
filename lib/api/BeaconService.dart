@@ -17,7 +17,6 @@ class BeaconService {
   Future<Beacon> getBeaconById(String id) async {
     final response = await http.get(
       'https://thawing-crag-60834.herokuapp.com/beacons' + '/?idBeacon=' + id,
-      headers: {HttpHeaders.authorizationHeader: token},
     );
     Iterable list = json.decode(response.body);
     return list.map((model) => Beacon.fromJson(model)).toList()[0];

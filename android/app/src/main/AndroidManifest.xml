@@ -13,12 +13,13 @@
     <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
     <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.INTERNET"/>
     <uses-feature
             android:name="android.hardware.bluetooth_le"
             android:required="true" />
     <application
         android:name="io.flutter.app.FlutterApplication"
-        android:label="maac_app"
+        android:label="Museum"
         android:icon="@mipmap/ic_launcher">
         <receiver
             android:name="com.umair.beacons_plugin.RebootBroadcastReceiver"
