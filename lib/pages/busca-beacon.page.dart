@@ -10,43 +10,25 @@ import 'package:maac_app/api/BeaconService.dart';
 import 'package:maac_app/models/Beacon.dart';
 import 'package:maac_app/pages/beacon-info.page.dart';
 
+// class BuscaBeacon extends StatefulWidget {
+//   @override
+//   _BuscaBeaconState createState() => _BuscaBeaconState();
+// }
 
-class BuscaBeacon extends StatefulWidget {
-  @override
-  _BuscaBeaconState createState() => _BuscaBeaconState();
-}
+class BuscaBeacon extends StatelessWidget {
+  final BeaconService beaconService = new BeaconService();
 
-class _BuscaBeaconState extends State<BuscaBeacon> {
-  BeaconService beaconService = new BeaconService();
-
-  Beacon beacon;
-  BuildContext context;
-  bool _isDisposed = false;
-
-  final StreamController<String> beaconEventsController =
-      StreamController<String>();
-
-  @override
-  void initState() {
-    super.initState();
-  }
-
-  @override
-  void dispose() {
-    this.beaconEventsController.close();
-    this._isDisposed = true;
-    super.dispose();
-  }
+  final StreamController<String> beaconEventsController = StreamController<String>();
 
   Future<void> initPlatformState(BuildContext context) async {
-    if (this._isDisposed) return;
-
     BeaconsPlugin.listenToBeacons(beaconEventsController);
-    beaconEventsController.stream.listen(
+    Stream beacons = beaconEventsController.stream;
+
+    beacons.listen(
         (data) async {
           if (data.isNotEmpty) {
-            
             var beaconData = jsonDecode(data);
+
             await getBeaconById(context, beaconData['uuid']);
           }
         },
@@ -69,21 +51,22 @@ class _BuscaBeaconState extends State<BuscaBeacon> {
   }
 
   Future getBeaconById(BuildContext cntext, String id) async {
+    // await BeaconsPlugin.stopMonitoring;
+
     Beacon founded = await beaconService.getBeaconById(id);
-    setState(() {
-      beacon = founded;
-    });
+
+    beaconEventsController.close();
 
     Navigator.push(
         cntext,
         MaterialPageRoute(
-            builder: (context) => PageInfoBeacon(beacon: this.beacon)));
-    dispose();
+            builder: (context) => PageInfoBeacon(beacon: founded)));
   }
 
   @override
   Widget build(BuildContext context) {
     initPlatformState(context);
+
     return Scaffold(
       backgroundColor: Colors.amber[400],
       body: Container(
