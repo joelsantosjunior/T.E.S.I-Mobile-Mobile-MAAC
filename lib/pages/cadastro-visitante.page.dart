@@ -1,13 +1,14 @@
+import 'package:maac_app/util/constantes.dart' as Constants;
 import 'package:flutter/material.dart';
+
 import 'package:maac_app/api/VisitanteService.dart';
 import 'package:maac_app/components/input.widget.dart';
 import 'package:maac_app/models/Visitante.dart';
-import 'package:maac_app/util/constantes.dart';
 import 'package:maac_app/util/deviceId.dart';
+import 'package:maac_app/pages/menu.page.dart';
 
-import 'tela_cadastrar_visitar.dart';
 
-class TelaCadastro extends StatelessWidget {
+class CadastroVisitantePage extends StatelessWidget {
   final _nomeController = TextEditingController();
   final _telefoneController = TextEditingController();
   final _cepController = TextEditingController();
@@ -36,7 +37,7 @@ class TelaCadastro extends StatelessWidget {
     service.cadastrarVisistante(data);
 
     Navigator.push(context,
-        MaterialPageRoute(builder: (context) => BotaoCadastrarVisitar()));
+        MaterialPageRoute(builder: (context) => MenuPage()));
   }
 
   @override
@@ -46,7 +47,7 @@ class TelaCadastro extends StatelessWidget {
       backgroundColor: Colors.white,
       appBar: AppBar(
         title: Text(
-          Const().TELA_CADASTRO,
+          Constants.TELA_CADASTRO,
           style: TextStyle(color: Colors.black),
         ),
         backgroundColor: Colors.amber[400],
@@ -57,37 +58,37 @@ class TelaCadastro extends StatelessWidget {
             children: <Widget>[
               InputWidget(
                 controller: this._nomeController,
-                label: Const().NOME_COMPLETO,
+                label: Constants.NOME_COMPLETO,
                 keyboardType: TextInputType.text,
               ),
               InputWidget(
                 controller: this._emailController,
-                label: Const().EMAIL,
+                label: Constants.EMAIL,
                 keyboardType: TextInputType.text,
               ),
               InputWidget(
                 controller: this._telefoneController,
-                label: Const().TELEFONE,
+                label: Constants.TELEFONE,
                 keyboardType: TextInputType.phone,
               ),
               InputWidget(
                 controller: this._enderecoController,
-                label: Const().ENDERECO,
+                label: Constants.ENDERECO,
                 keyboardType: TextInputType.text,
               ),
               InputWidget(
                 controller: this._bairroController,
-                label: Const().BAIRRO,
+                label: Constants.BAIRRO,
                 keyboardType: TextInputType.text,
               ),
               InputWidget(
                 controller: this._complementoController,
-                label: Const().COMPLEMENTO,
+                label: Constants.COMPLEMENTO,
                 keyboardType: TextInputType.text,
               ),
               InputWidget(
                 controller: this._cepController,
-                label: Const().CEP,
+                label: Constants.CEP,
                 keyboardType: TextInputType.number,
               ),
               Container(
@@ -100,7 +101,7 @@ class TelaCadastro extends StatelessWidget {
                 child: FlatButton(
                     onPressed: createVisitante,
                     child: Text(
-                      Const().CADASTRAR,
+                      Constants.CADASTRAR,
                       style: TextStyle(color: Colors.black),
                     )),
               ),

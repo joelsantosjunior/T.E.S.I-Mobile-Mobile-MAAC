@@ -1,11 +1,15 @@
-import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
-import 'package:maac_app/models/Beacon.dart';
-import 'package:maac_app/screens/tela_agradecimento.dart';
+import 'package:auto_size_text/auto_size_text.dart';
 
-import 'tela_buscar_beacon.dart';
-import 'tela_cadastrar_visitar.dart';
-import 'package:youtube_player_flutter/youtube_player_flutter.dart';
+import 'package:maac_app/components/image-content.widget.dart';
+import 'package:maac_app/components/text-content.widget.dart';
+import 'package:maac_app/components/video-content.widget.dart';
+
+import 'package:maac_app/pages/agradecimento.page.dart'; 
+import 'package:maac_app/pages/busca-beacon.page.dart'; 
+import 'package:maac_app/pages/menu.page.dart'; 
+
+import 'package:maac_app/models/Beacon.dart';
 
 class PageInfoBeacon extends StatelessWidget {
   final Beacon beacon;
@@ -17,7 +21,7 @@ class PageInfoBeacon extends StatelessWidget {
     switch (index) {
       case 0:
         Navigator.push(context,
-            MaterialPageRoute(builder: (context) => BotaoCadastrarVisitar()));
+            MaterialPageRoute(builder: (context) => MenuPage()));
         break;
       case 1:
         Navigator.push(
@@ -35,52 +39,15 @@ class PageInfoBeacon extends StatelessWidget {
     Widget widgetContent;
 
     if (type == "texto") {
-      widgetContent = Container(
-        child: Padding(
-          padding: EdgeInsets.all(20),
-          child: SingleChildScrollView(
-            child: Text(
-              content,
-              style: TextStyle(
-                  fontSize: 18,
-                  color: Colors.black,
-                  textBaseline: TextBaseline.alphabetic),
-            ),
-          ),
-        ),
-      );
+      widgetContent = new TextContentWidget(content: content);
     }
 
     if (type == "video") {
-      YoutubePlayerController _controller = YoutubePlayerController(
-        initialVideoId: content,
-        flags: YoutubePlayerFlags(
-          autoPlay: true,
-          mute: true,
-        ),
-      );
-
-      widgetContent = Container(
-        child: Padding(
-          padding: EdgeInsets.all(5),
-          child: YoutubePlayer(
-            controller: _controller,
-            liveUIColor: Colors.amber,
-          ),
-        ),
-      );
+      widgetContent = new VideoContentWidget(content: content);
     }
 
     if (type == "imagem") {
-      widgetContent = Container(
-        child: Padding(
-          padding: EdgeInsets.all(5),
-          child: ClipRRect(
-              borderRadius: BorderRadius.circular(15),
-              // child: Image.asset(beacon.conteudo, fit: BoxFit.fill)),
-              child: Image.network(content, fit: BoxFit.fill)),
-        ),
-      );
+      widgetContent = new ImageContentWidget(content: content);
     }
 
     return widgetContent;

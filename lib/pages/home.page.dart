@@ -1,9 +1,9 @@
 import 'package:flare_flutter/flare_actor.dart';
 import 'package:flutter/material.dart';
-import 'package:maac_app/screens/tela_cadastrar_visitar.dart';
-import 'package:maac_app/util/constantes.dart';
 
-class MyPageHome extends StatelessWidget {
+import 'package:maac_app/pages/menu.page.dart';
+
+class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -24,7 +24,7 @@ class MyPageHome extends StatelessWidget {
                       Navigator.push(
                           context,
                           MaterialPageRoute(
-                              builder: (context) => BotaoCadastrarVisitar()));
+                              builder: (context) => MenuPage()));
                     },
                     child: Container(
                       width: 200,

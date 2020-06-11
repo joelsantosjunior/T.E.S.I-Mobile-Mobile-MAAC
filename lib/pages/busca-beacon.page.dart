@@ -1,13 +1,15 @@
-import 'package:flare_flutter/flare_actor.dart';
-import 'package:flutter/material.dart';
-import 'package:maac_app/api/BeaconService.dart';
-import 'package:maac_app/models/Beacon.dart';
-import 'package:maac_app/screens/page_info_beacon.dart';
-
 import 'dart:async';
 import 'dart:io' show Platform;
-import 'package:beacons_plugin/beacons_plugin.dart';
 import 'dart:convert';
+
+import 'package:flutter/material.dart';
+import 'package:flare_flutter/flare_actor.dart';
+import 'package:beacons_plugin/beacons_plugin.dart';
+
+import 'package:maac_app/api/BeaconService.dart';
+import 'package:maac_app/models/Beacon.dart';
+import 'package:maac_app/pages/beacon-info.page.dart';
+
 
 class BuscaBeacon extends StatefulWidget {
   @override

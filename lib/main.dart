@@ -1,6 +1,4 @@
-
 import 'package:flutter/material.dart';
-import 'screens/page_home.dart';
+import 'package:maac_app/pages/main.page.dart'; 
 
-
-void main() => runApp(PageHome());
+void main() => runApp(MainPage());
