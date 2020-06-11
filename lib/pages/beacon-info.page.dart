@@ -5,9 +5,9 @@ import 'package:maac_app/components/image-content.widget.dart';
 import 'package:maac_app/components/text-content.widget.dart';
 import 'package:maac_app/components/video-content.widget.dart';
 
-import 'package:maac_app/pages/agradecimento.page.dart'; 
-import 'package:maac_app/pages/busca-beacon.page.dart'; 
-import 'package:maac_app/pages/menu.page.dart'; 
+import 'package:maac_app/pages/busca-beacon.page.dart';
+import 'package:maac_app/pages/home.page.dart';
+import 'package:maac_app/pages/menu.page.dart';
 
 import 'package:maac_app/models/Beacon.dart';
 
@@ -15,21 +15,22 @@ class PageInfoBeacon extends StatelessWidget {
   final Beacon beacon;
 
   PageInfoBeacon({@required this.beacon});
-  BuildContext context;
 
-  void _tap(int index) {
+  void _tap(int index, BuildContext context) {
     switch (index) {
       case 0:
-        Navigator.push(context,
-            MaterialPageRoute(builder: (context) => MenuPage()));
+        Navigator.pushAndRemoveUntil(context,
+            MaterialPageRoute(builder: (context) => MenuPage()), (r) => r.isFirst);
+        // Navigator.push(context,
+        //     MaterialPageRoute(builder: (context) => MenuPage()));
         break;
       case 1:
         Navigator.push(
             context, MaterialPageRoute(builder: (context) => BuscaBeacon()));
         break;
       case 2:
-        Navigator.push(
-            context, MaterialPageRoute(builder: (context) => AgradecimentoPage()));
+        Navigator.pushAndRemoveUntil(context,
+            MaterialPageRoute(builder: (context) => HomePage()), (r) => false);
         break;
       default:
     }
@@ -55,7 +56,6 @@ class PageInfoBeacon extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    this.context = context;
     return Scaffold(
       backgroundColor: Colors.amber[400],
       body: Column(
@@ -85,7 +85,9 @@ class PageInfoBeacon extends StatelessWidget {
           Container(
             child: Align(
               child: BottomNavigationBar(
-                onTap: _tap,
+                onTap: (int index) {
+                  _tap(index, context);
+                },
                 type: BottomNavigationBarType.fixed,
                 backgroundColor: Colors.amber[400],
                 items: [
