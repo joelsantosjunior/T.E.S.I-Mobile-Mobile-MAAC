@@ -1,16 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 
 class AgradecimentoPage extends StatelessWidget {
-  Future exitApp() async {
-    return new Future.delayed(const Duration(seconds: 3), () {
-      SystemNavigator.pop();
-      },
-    );
-  }
+
   @override
   Widget build(BuildContext context) {
-    exitApp();
     return Scaffold(
         backgroundColor: Colors.amber[400],
         body: Center(
