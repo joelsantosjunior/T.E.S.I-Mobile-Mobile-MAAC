@@ -24,7 +24,7 @@ class _BuscaBeaconState extends State<BuscaBeacon> {
   bool _isDisposed = false;
 
   final StreamController<String> beaconEventsController =
-      StreamController<String>.broadcast();
+      StreamController<String>();
 
   @override
   void initState() {
@@ -45,6 +45,7 @@ class _BuscaBeaconState extends State<BuscaBeacon> {
     beaconEventsController.stream.listen(
         (data) async {
           if (data.isNotEmpty) {
+            
             var beaconData = jsonDecode(data);
             await getBeaconById(context, beaconData['uuid']);
           }
@@ -54,7 +55,7 @@ class _BuscaBeaconState extends State<BuscaBeacon> {
           print("Error: $error");
         });
 
-    await BeaconsPlugin.runInBackground(true);
+    // await BeaconsPlugin.runInBackground(true);
 
     if (Platform.isAndroid) {
       BeaconsPlugin.channel.setMethodCallHandler((call) async {
@@ -72,8 +73,6 @@ class _BuscaBeaconState extends State<BuscaBeacon> {
     setState(() {
       beacon = founded;
     });
-
-    this.beaconEventsController.close();
 
     Navigator.push(
         cntext,

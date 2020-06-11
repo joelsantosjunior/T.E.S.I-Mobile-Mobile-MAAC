@@ -29,7 +29,7 @@ class PageInfoBeacon extends StatelessWidget {
         break;
       case 2:
         Navigator.push(
-            context, MaterialPageRoute(builder: (context) => TelaSaida()));
+            context, MaterialPageRoute(builder: (context) => AgradecimentoPage()));
         break;
       default:
     }

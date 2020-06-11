@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
-class TelaSaida extends StatelessWidget {
+class AgradecimentoPage extends StatelessWidget {
   Future exitApp() async {
     return new Future.delayed(const Duration(seconds: 3), () {
       SystemNavigator.pop();
