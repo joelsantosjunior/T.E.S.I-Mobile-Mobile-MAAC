@@ -1,14 +1,14 @@
+import 'package:maac_app/util/constantes.dart' as Constants;
+
 import 'package:flutter/material.dart';
 import 'package:maac_app/api/VisitanteService.dart';
-import 'package:maac_app/screens/tela_buscar_beacon.dart';
-import 'package:maac_app/screens/tela_cadastro.dart';
-import 'package:maac_app/util/constantes.dart';
+import 'package:maac_app/pages/busca-beacon.page.dart';
+import 'package:maac_app/pages/cadastro-visitante.page.dart';
 
 import '../models/Visitante.dart';
 import '../util/deviceId.dart';
-import 'tela_cadastro.dart';
 
-class BotaoCadastrarVisitar extends StatelessWidget {
+class MenuPage extends StatelessWidget {
   BuildContext context;
 
   void verifyIfExistUser() async {
@@ -25,7 +25,7 @@ class BotaoCadastrarVisitar extends StatelessWidget {
     } else {
       Navigator.push(
         context,
-        MaterialPageRoute(builder: (context) => TelaCadastro()),
+        MaterialPageRoute(builder: (context) => CadastroVisitantePage()),
       );
     }
   }
@@ -39,7 +39,7 @@ class BotaoCadastrarVisitar extends StatelessWidget {
       body: Container(
         decoration: BoxDecoration(
             image: DecorationImage(
-                image: AssetImage("lib/imagens/cadastro.png"),
+                image: AssetImage("assets/images/cadastro.png"),
                 fit: BoxFit.fill)),
         child: Center(
           child: Column(
@@ -54,7 +54,7 @@ class BotaoCadastrarVisitar extends StatelessWidget {
                 child: FlatButton(
                     onPressed: this.verifyIfExistUser,
                     child: Text(
-                      Const().VISITAR,
+                      Constants.VISITAR,
                       style: TextStyle(color: Colors.white, fontSize: 20),
                     )),
               ),
@@ -71,7 +71,7 @@ class BotaoCadastrarVisitar extends StatelessWidget {
                       Navigator.push(
                           context,
                           MaterialPageRoute(
-                              builder: (context) => TelaCadastro()));
+                              builder: (context) => CadastroVisitantePage()));
                     },
                     borderSide: BorderSide(
                       color: Colors.black, //Color of the border
@@ -79,7 +79,7 @@ class BotaoCadastrarVisitar extends StatelessWidget {
                       width: 3, //width of the border
                     ),
                     child: Text(
-                      Const().CADASTRAR,
+                      Constants.CADASTRAR,
                       style: TextStyle(color: Colors.black, fontSize: 20),
                     )),
               ),

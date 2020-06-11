@@ -1,49 +1,34 @@
-import 'package:flare_flutter/flare_actor.dart';
-import 'package:flutter/material.dart';
-import 'package:maac_app/api/BeaconService.dart';
-import 'package:maac_app/models/Beacon.dart';
-import 'package:maac_app/screens/page_info_beacon.dart';
-
 import 'dart:async';
 import 'dart:io' show Platform;
-import 'package:beacons_plugin/beacons_plugin.dart';
 import 'dart:convert';
 
-class BuscaBeacon extends StatefulWidget {
-  @override
-  _BuscaBeaconState createState() => _BuscaBeaconState();
-}
+import 'package:flutter/material.dart';
+import 'package:flare_flutter/flare_actor.dart';
+import 'package:beacons_plugin/beacons_plugin.dart';
 
-class _BuscaBeaconState extends State<BuscaBeacon> {
-  BeaconService beaconService = new BeaconService();
+import 'package:maac_app/api/BeaconService.dart';
+import 'package:maac_app/models/Beacon.dart';
+import 'package:maac_app/pages/beacon-info.page.dart';
 
-  Beacon beacon;
-  BuildContext context;
-  bool _isDisposed = false;
+// class BuscaBeacon extends StatefulWidget {
+//   @override
+//   _BuscaBeaconState createState() => _BuscaBeaconState();
+// }
 
-  final StreamController<String> beaconEventsController =
-      StreamController<String>.broadcast();
+class BuscaBeacon extends StatelessWidget {
+  final BeaconService beaconService = new BeaconService();
 
-  @override
-  void initState() {
-    super.initState();
-  }
-
-  @override
-  void dispose() {
-    this.beaconEventsController.close();
-    this._isDisposed = true;
-    super.dispose();
-  }
+  final StreamController<String> beaconEventsController = StreamController<String>();
 
   Future<void> initPlatformState(BuildContext context) async {
-    if (this._isDisposed) return;
-
     BeaconsPlugin.listenToBeacons(beaconEventsController);
-    beaconEventsController.stream.listen(
+    Stream beacons = beaconEventsController.stream;
+
+    beacons.listen(
         (data) async {
           if (data.isNotEmpty) {
             var beaconData = jsonDecode(data);
+
             await getBeaconById(context, beaconData['uuid']);
           }
         },
@@ -52,7 +37,7 @@ class _BuscaBeaconState extends State<BuscaBeacon> {
           print("Error: $error");
         });
 
-    await BeaconsPlugin.runInBackground(true);
+    // await BeaconsPlugin.runInBackground(true);
 
     if (Platform.isAndroid) {
       BeaconsPlugin.channel.setMethodCallHandler((call) async {
@@ -66,35 +51,34 @@ class _BuscaBeaconState extends State<BuscaBeacon> {
   }
 
   Future getBeaconById(BuildContext cntext, String id) async {
-    Beacon founded = await beaconService.getBeaconById(id);
-    setState(() {
-      beacon = founded;
-    });
+    // await BeaconsPlugin.stopMonitoring;
 
-    this.beaconEventsController.close();
+    Beacon founded = await beaconService.getBeaconById(id);
+
+    beaconEventsController.close();
 
     Navigator.push(
         cntext,
         MaterialPageRoute(
-            builder: (context) => PageInfoBeacon(beacon: this.beacon)));
-    dispose();
+            builder: (context) => PageInfoBeacon(beacon: founded)));
   }
 
   @override
   Widget build(BuildContext context) {
     initPlatformState(context);
+
     return Scaffold(
       backgroundColor: Colors.amber[400],
       body: Container(
         decoration: BoxDecoration(
             image: DecorationImage(
-                image: AssetImage("lib/imagens/bg.png"), fit: BoxFit.fill)),
+                image: AssetImage("assets/images/bg.png"), fit: BoxFit.fill)),
         child: Center(
           child: Stack(
             children: <Widget>[
               Container(
                 child: FlareActor(
-                  "lib/imagens/buscando.flr",
+                  "assets/images/buscando.flr",
                   animation: "Record2",
                   fit: BoxFit.contain,
                 ),

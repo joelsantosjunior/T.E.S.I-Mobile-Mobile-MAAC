@@ -2,9 +2,10 @@ import 'package:flutter/material.dart';
 
 class InputWidget extends StatelessWidget {
 
-  var label = "";
-  var controller = TextEditingController();
-  var keyboardType = TextInputType.text;
+  String label = "";
+  TextEditingController controller = TextEditingController();
+  TextInputType keyboardType = TextInputType.text;
+
   InputWidget({@required this.controller, @required this.label,  @required this.keyboardType});
 
   @override
