@@ -18,7 +18,8 @@ import 'package:maac_app/pages/beacon-info.page.dart';
 class BuscaBeacon extends StatelessWidget {
   final BeaconService beaconService = new BeaconService();
 
-  final StreamController<String> beaconEventsController = StreamController<String>();
+  final StreamController<String> beaconEventsController =
+      StreamController<String>();
 
   Future<void> initPlatformState(BuildContext context) async {
     BeaconsPlugin.listenToBeacons(beaconEventsController);
@@ -27,6 +28,8 @@ class BuscaBeacon extends StatelessWidget {
     beacons.listen(
         (data) async {
           if (data.isNotEmpty) {
+            beaconEventsController.close();
+
             var beaconData = jsonDecode(data);
 
             await getBeaconById(context, beaconData['uuid']);
@@ -36,8 +39,6 @@ class BuscaBeacon extends StatelessWidget {
         onError: (error) {
           print("Error: $error");
         });
-
-    // await BeaconsPlugin.runInBackground(true);
 
     if (Platform.isAndroid) {
       BeaconsPlugin.channel.setMethodCallHandler((call) async {
@@ -51,11 +52,7 @@ class BuscaBeacon extends StatelessWidget {
   }
 
   Future getBeaconById(BuildContext cntext, String id) async {
-    // await BeaconsPlugin.stopMonitoring;
-
     Beacon founded = await beaconService.getBeaconById(id);
-
-    beaconEventsController.close();
 
     Navigator.push(
         cntext,
